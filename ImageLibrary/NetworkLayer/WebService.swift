@@ -9,18 +9,10 @@ import Foundation
 
 class WebService: NetworkingProtocol {
     
-    /// Caching object to fetch token
-    private let cachingManager: CachingProtocol
-
     /// URLSession Object
     private var session: URLSession = URLSession(configuration: .default)
     ///CompletionHandler
     private typealias JSONTaskCompletionHandler = (Decodable?, APIError?) -> Void
-    
-    
-    init(cachingManager: CachingProtocol = CacheManager()) {
-        self.cachingManager = cachingManager
-    }
     
     private func decodingTask<T: Decodable>(with request: URLRequest, decodingType: T.Type, completionHandler completion: @escaping JSONTaskCompletionHandler) -> URLSessionDataTask {
         let task = session.dataTask(with: request) { data, response, error in

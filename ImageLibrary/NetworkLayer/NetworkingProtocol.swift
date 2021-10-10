@@ -17,11 +17,7 @@ protocol NetworkingProtocol: AnyObject {
                                completionHandler: @escaping (Result<T, Error>) -> Void)
     
     func request<T: Decodable>(value: T.Type,
-                               from endpoint: Requestable,
-                               body: Data?,
-                               completionHandler: @escaping (Result<T, Error>) -> Void)
-    
-    func request<T: Decodable>(value: T.Type,
+                               withParameters params: [String: String?],
                                from endpoint: Requestable,
                                completionHandler: @escaping (Result<T, Error>) -> Void)
 }
@@ -38,13 +34,15 @@ extension NetworkingProtocol{
                      body: body,
                      completionHandler: completionHandler)
     }
+
     
     func request<T: Decodable>(value: T.Type,
+                               withParameters params: [String: String?],
                                from endpoint: Requestable,
                                completionHandler: @escaping (Result<T, Error>) -> Void){
         self.request(value: value,
                      from: endpoint,
-                     withParameters: [:],
+                     withParameters: params,
                      headers: nil,
                      body: nil,
                      completionHandler: completionHandler)

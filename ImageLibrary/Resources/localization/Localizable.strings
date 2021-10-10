@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  ImageLibrary
+
+  Created by AhmedFitoh on 10/10/21.
+  
+*/
+
+////////////////////- Image List -\\\\\\\\\\\\\\\\\\\\
+"ImageList_By" = "By";
+"ImageList_AdsNotAvailable" = "Ads not available!";
+
+////////////////////- Common -\\\\\\\\\\\\\\\\\\\\
+"Common_Ok" = "OK";
+"Common_Cancel" = "Cancel";
