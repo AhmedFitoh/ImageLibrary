@@ -11,6 +11,15 @@ class AdsInjector {
     
     private let startIndex = 5
     private let adsThreshold = 5
+
+    private func convertImageListElementToCellType(_ element: ImageListElement) -> ImageListCellType{
+        return ImageListCellType.imageCell(element)
+    }
+    
+    private func adCreator() -> ImageListCellType{
+        return ImageListCellType.adCell
+    }
+    
     
     func injectAdsIn(_ list: ImageList) -> [ImageListCellType]{
         let itemsCount = list.count
@@ -23,14 +32,5 @@ class AdsInjector {
             tempList.insert(adCreator(), at: adIndex)
         }
         return tempList
-    }
-    
-    
-    private func convertImageListElementToCellType(_ element: ImageListElement) -> ImageListCellType{
-        return ImageListCellType.imageCell(element)
-    }
-    
-    private func adCreator() -> ImageListCellType{
-        return ImageListCellType.adCell
     }
 }
