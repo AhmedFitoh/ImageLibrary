@@ -19,7 +19,11 @@ extension UIImageView {
     ///   - urlString: Url string
     ///   - cellIndexPathRow: used for reusables (UITableViewCell and UICollectionViewCells)
     ///   - placeHolderImage: placeholder image
-    func loadImageUsingCache(withUrl urlString: String, cellIndexPathRow: Int? = nil, placeHolderImage: UIImage? = nil) {
+    ///   - completionHandler: closure will be called after successfully setting image
+    func loadImageUsingCache(withUrl urlString: String,
+                             cellIndexPathRow: Int? = nil,
+                             placeHolderImage: UIImage? = nil,
+                             completionHandler: (()->())? = nil) {
         self.image = placeHolderImage
         guard let encodedUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: encodedUrlString ) else {
@@ -31,6 +35,7 @@ extension UIImageView {
         // check cached image is already fetched
         if let cachedImage = imageCache.object(forKey: urlString as NSString) {
             self.image = cachedImage
+            completionHandler?()
             return
         }
         // if not, download image from url
@@ -52,6 +57,7 @@ extension UIImageView {
                     }
                 }
                 self?.image = image
+                completionHandler?()
             }
         }).resume()
     }

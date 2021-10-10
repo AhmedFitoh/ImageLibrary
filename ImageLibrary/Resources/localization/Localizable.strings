@@ -10,6 +10,12 @@
 "ImageList_By" = "By";
 "ImageList_AdsNotAvailable" = "Ads not available!";
 
+
+////////////////////- Image Viewer View -\\\\\\\\\\\\\\\\\\\\
+
+"ImageViewerView_ImageSavedMessage" = "Image has been saved successfully";
+
+
 ////////////////////- Common -\\\\\\\\\\\\\\\\\\\\
 "Common_Ok" = "OK";
 "Common_Cancel" = "Cancel";

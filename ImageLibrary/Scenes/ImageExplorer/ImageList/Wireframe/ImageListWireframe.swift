@@ -33,9 +33,10 @@ class ImageListWireframe {
 // MARK: - Presenter to Wireframe Protocol
 extension ImageListWireframe: ImageListPresenterToWireframeProtocol {
     
-    func navigateToFullScreenViewer(_ url: String?) {
-        
+    func navigateToFullScreenViewer(_ item: ImageListElement) {
+        if let imageViewController = ImageViewerWireframe(imageItem: item).viewController {
+            viewController?.navigationController?.pushViewController(imageViewController, animated: true)
+        }
     }
 
-    
 }

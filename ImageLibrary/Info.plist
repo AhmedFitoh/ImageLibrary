@@ -38,5 +38,7 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>In order to save photos &quot;Image library&quot; needs Photos permission</string>
 </dict>
 </plist>

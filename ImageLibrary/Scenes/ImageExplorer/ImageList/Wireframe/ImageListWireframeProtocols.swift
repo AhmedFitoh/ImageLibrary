@@ -16,5 +16,5 @@ struct ImageListConstants {
 // VIPER Protocol for communication from Presenter -> Wireframe
 protocol ImageListPresenterToWireframeProtocol: AnyObject {
     
-    func navigateToFullScreenViewer(_ url: String?)
+    func navigateToFullScreenViewer(_ item: ImageListElement)
 }

@@ -78,7 +78,9 @@ extension ImageListPresenter: ImageListViewToPresenterProtocol {
     func userDidSelectItem(at index: Int) {
         switch list [index] {
         case .imageCell(let item):
-            wireframe?.navigateToFullScreenViewer(item.imageUrl)
+            if let imageListItem = item as? ImageListElement{
+                wireframe?.navigateToFullScreenViewer(imageListItem)
+            }
         case .adCell:
             view?.showAlert(title: nil,
                             message:"ImageList_AdsNotAvailable".localized,
